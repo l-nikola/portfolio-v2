@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "prettier": "3.7.4",
-    "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-md-nocjsp": "1.5.1"
+    "prettier-plugin-astro": "0.14.1"
   }
 }

@@ -1,7 +1,11 @@
 {
-  "plugins": ["prettier-plugin-astro", "prettier-plugin-md-nocjsp"],
-  "astroAllowShorthand": true,
-  "printWidth": 80,
-  "singleQuote": true,
-  "semi": false
+  "plugins": ["prettier-plugin-astro"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }

@@ -18,9 +18,6 @@ importers:
       prettier-plugin-astro:
         specifier: 0.14.1
         version: 0.14.1
-      prettier-plugin-md-nocjsp:
-        specifier: 1.5.1
-        version: 1.5.1(prettier@3.7.4)
 
 packages:
 
@@ -1129,11 +1126,6 @@ packages:
   prettier-plugin-astro@0.14.1:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
     engines: {node: ^14.15.0 || >=16.0.0}
-
-  prettier-plugin-md-nocjsp@1.5.1:
-    resolution: {integrity: sha512-qJyt8otPPNetQEcsZEaS4BGSgGfrhX9CfvcUUauvHewaMMZDxWDU8GB1VkWHwhLZ4W9nDTfWxGPBce8Ot4Jaxg==}
-    peerDependencies:
-      prettier: 2.x
 
   prettier@3.7.4:
     resolution: {integrity: sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==}
@@ -2824,10 +2816,6 @@ snapshots:
       '@astrojs/compiler': 2.13.0
       prettier: 3.7.4
       sass-formatter: 0.7.9
-
-  prettier-plugin-md-nocjsp@1.5.1(prettier@3.7.4):
-    dependencies:
-      prettier: 3.7.4
 
   prettier@3.7.4: {}
 
