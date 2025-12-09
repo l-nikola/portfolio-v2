@@ -1,13 +1,77 @@
 ---
-export function getStaticPaths() {
-  return [
-    { params: { project: 'project1' } },
-    { params: { project: 'project2' } },
-    { params: { project: 'project3' } },
-  ]
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => {
+    return {
+      params: { project: project.id },
+      props: { entry: project },
+    };
+  });
 }
 
-const { project } = Astro.params
+const { entry } = Astro.props;
+const { Content } = await render(entry);
 ---
 
-<div>Project : {project}</div>
+<main>
+  <h1>{entry.data.title}</h1>
+
+  <p>Date: {entry.data.date.toLocaleDateString("fr-FR")}</p>
+
+  {(<p>Contexte: {entry.data.context}</p>)}
+
+  {
+    entry.data.stack.length > 0 && (
+      <div>
+        <h2>Stack technique</h2>
+        <ul>
+          {entry.data.stack.map((tech) => (
+            <li>{tech}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  {
+    entry.data.links && (
+      <div>
+        <h2>Liens</h2>
+        {entry.data.links.github && (
+          <a
+            href={entry.data.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        )}
+        {entry.data.links.site && (
+          <a
+            href={entry.data.links.site}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Site web
+          </a>
+        )}
+        {entry.data.links.figma && (
+          <a
+            href={entry.data.links.figma}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Figma
+          </a>
+        )}
+      </div>
+    )
+  }
+
+  <article>
+    <Content />
+  </article>
+</main>
