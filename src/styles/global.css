@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: theme("colors.neutral.950");
+    --solid: theme("colors.neutral.900");
+    --text-primary: theme("colors.neutral.50");
+    --text-secondary: theme("colors.neutral.400");
+    --gradient: linear-gradient(
+      90deg,
+      theme("colors.sky.500") 0%,
+      theme("colors.indigo.500") 50%,
+      theme("colors.pink.500") 100%
+    );
+  }
+}
+
+@layer utilities {
+  .border-gradient {
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--background), var(--background)) padding-box,
+      var(--gradient) border-box;
+  }
+
+  .bg-primary {
+    background-color: var(--background);
+  }
+
+  .bg-solid {
+    background-color: var(--solid);
+  }
+
+  .text-primary {
+    color: var(--text-primary);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+}
