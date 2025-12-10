@@ -21,7 +21,7 @@ const { Content } = await render(entry);
 
   <p>Date: {entry.data.date.toLocaleDateString("fr-FR")}</p>
 
-  {(<p>Contexte: {entry.data.context}</p>)}
+  {(<p>Contexte: {entry.data.context.id}</p>)}
 
   {
     entry.data.stack.length > 0 && (
