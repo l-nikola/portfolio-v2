@@ -1,4 +1,5 @@
 ---
+import Layout from "@/layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -16,7 +17,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<main>
+<Layout title={entry.data.title + " - Legay Nikola"}>
   <h1>{entry.data.title}</h1>
 
   <p>Date: {entry.data.date.toLocaleDateString("fr-FR")}</p>
@@ -74,4 +75,4 @@ const { Content } = await render(entry);
   <article>
     <Content />
   </article>
-</main>
+</Layout>

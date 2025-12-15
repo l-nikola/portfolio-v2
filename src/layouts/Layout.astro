@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +21,7 @@ import "@/styles/global.css";
       name="description"
       content="Portfolio de Nikola Legay : développeur web front-end. Projets, compétences, contact."
     />
-    <title>Portfolio Legay Nikola</title>
+    <title>{title}</title>
   </head>
   <body class="bg-primary bg-noise">
     <slot />
