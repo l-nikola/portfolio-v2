@@ -1,0 +1,38 @@
+---
+import { Mail, MapPin, Phone } from "@lucide/astro";
+---
+
+<footer
+  class="bg-solid bg-noise flex flex-col items-center justify-center gap-6"
+>
+  <div class="flex flex-col items-center justify-center">
+    <span class="font-heading text-xl font-bold">Contact</span>
+    <div class="flex">
+      <Phone />
+      <span> 06 30 14 56 82</span>
+    </div>
+    <div class="flex">
+      <Mail />
+      <span>legay.nikola.pro@gmail.com</span>
+    </div>
+    <div class="flex">
+      <MapPin />
+      <span>1801 route des Sablons, 76530 Yville-sur-Seine</span>
+    </div>
+  </div>
+  <div class="flex flex-col items-center justify-center">
+    <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
+    <span>Réseaux</span>
+  </div>
+  <div class="flex flex-col items-center justify-center">
+    <span class="font-heading text-xl font-bold">Navigation</span>
+    <a href="">Accueil</a>
+    <a href="projects">Projets</a>
+    <a href="about">À propos</a>
+  </div>
+  <div class="flex flex-col items-center justify-center">
+    <span class="font-heading text-xl font-bold">Légal</span>
+    <a href="legal-notices">Mentions légales</a>
+    <a href="privacy-policy">Politique de confidentialité</a>
+  </div>
+</footer>
