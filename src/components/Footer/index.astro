@@ -1,38 +1,84 @@
 ---
 import { Mail, MapPin, Phone } from "@lucide/astro";
+import GithubIcon from "@/assets/icons/socialNetworks/github.svg";
+import GithubIconHover from "@/assets/icons/socialNetworks/githubHover.svg";
+import LinkedinIcon from "@/assets/icons/socialNetworks/linkedin.svg";
+import LinkedinIconHover from "@/assets/icons/socialNetworks/linkedinHover.svg";
+import { contact } from "@/config/contact";
 ---
 
 <footer
-  class="bg-solid bg-noise flex flex-col items-center justify-center gap-6"
+  class="bg-solid bg-noise flex flex-col items-center justify-center gap-6 py-6 text-sm"
 >
-  <div class="flex flex-col items-center justify-center">
+  <!-- Contact -->
+  <div class="flex flex-col items-center gap-4">
     <span class="font-heading text-xl font-bold">Contact</span>
-    <div class="flex">
-      <Phone />
-      <span> 06 30 14 56 82</span>
-    </div>
-    <div class="flex">
-      <Mail />
-      <span>legay.nikola.pro@gmail.com</span>
-    </div>
-    <div class="flex">
-      <MapPin />
-      <span>1801 route des Sablons, 76530 Yville-sur-Seine</span>
+    <div class="flex flex-col items-center gap-2">
+      <div class="flex items-center gap-4">
+        <Phone stroke-width={1} />
+        <a href=`tel:${contact.phone.link}`>{contact.phone.display}</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <Mail stroke-width={1} />
+        <a href=`mailto:${contact.email}`>
+          {contact.email}
+        </a>
+      </div>
+      <address class="not-italic">
+        <div class="flex items-center gap-4">
+          <MapPin stroke-width={1} />
+          <div>
+            <p>{contact.address.street},</p>
+            <p>{contact.address.zip} {contact.address.city}</p>
+          </div>
+        </div>
+      </address>
     </div>
   </div>
-  <div class="flex flex-col items-center justify-center">
+
+  <!-- Social -->
+  <div class="flex flex-col items-center justify-center gap-4">
     <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
-    <span>Réseaux</span>
+    <div class="mt-2.5 flex flex-row gap-4">
+      <a href=`${contact.social.linkedin}` class="group relative h-8 w-8">
+        <LinkedinIcon
+          class="absolute inset-0 transition-opacity group-hover:opacity-0"
+        />
+        <LinkedinIconHover
+          class="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
+        />
+      </a>
+      <a href=`${contact.social.github}` class="group relative h-8 w-8">
+        <GithubIcon
+          class="absolute inset-0 transition-opacity group-hover:opacity-0"
+        />
+        <GithubIconHover
+          class="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
+        />
+      </a>
+    </div>
   </div>
-  <div class="flex flex-col items-center justify-center">
+
+  <!-- Navigation -->
+  <div class="flex flex-col items-center justify-center gap-4">
     <span class="font-heading text-xl font-bold">Navigation</span>
-    <a href="">Accueil</a>
-    <a href="projects">Projets</a>
-    <a href="about">À propos</a>
+    <div class="flex flex-col items-center gap-1">
+      <a href="">Accueil</a>
+      <a href="projects">Projets</a>
+      <a href="about">À propos</a>
+    </div>
   </div>
-  <div class="flex flex-col items-center justify-center">
+
+  <!-- Legal -->
+  <div class="flex flex-col items-center justify-center gap-4">
     <span class="font-heading text-xl font-bold">Légal</span>
-    <a href="legal-notices">Mentions légales</a>
-    <a href="privacy-policy">Politique de confidentialité</a>
+    <div class="flex flex-col items-center gap-1">
+      <a href="legal-notices">Mentions légales</a>
+      <a href="privacy-policy">Politique de confidentialité</a>
+    </div>
   </div>
+
+  <!-- Copyright -->
+  <hr class="border-gradient h-px w-3xs" />
+  <span>© 2025 Nikola Legay - Design & code by me.</span>
 </footer>
