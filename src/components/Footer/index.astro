@@ -5,76 +5,77 @@ import GithubIconHover from "@/assets/icons/socialNetworks/githubHover.svg";
 import LinkedinIcon from "@/assets/icons/socialNetworks/linkedin.svg";
 import LinkedinIconHover from "@/assets/icons/socialNetworks/linkedinHover.svg";
 import { contact } from "@/config/contact";
+import SocialLinks from "@/components/SocialLinks/index.astro";
 ---
 
 <footer
   class="bg-solid bg-noise flex flex-col items-center justify-center gap-6 py-6 text-sm"
 >
-  <!-- Contact -->
-  <div class="flex flex-col items-center gap-4">
-    <span class="font-heading text-xl font-bold">Contact</span>
-    <div class="flex flex-col items-center gap-2">
-      <div class="flex items-center gap-4">
-        <Phone stroke-width={1} />
-        <a href=`tel:${contact.phone.link}`>{contact.phone.display}</a>
-      </div>
-      <div class="flex items-center gap-4">
-        <Mail stroke-width={1} />
-        <a href=`mailto:${contact.email}`>
-          {contact.email}
-        </a>
-      </div>
-      <address class="not-italic">
+  <div class="flex flex-col gap-6 md:flex-row">
+    <!-- Contact -->
+    <div class="flex flex-col items-center gap-4">
+      <span class="font-heading text-xl font-bold">Contact</span>
+      <div class="flex flex-col items-center gap-2">
         <div class="flex items-center gap-4">
-          <MapPin stroke-width={1} />
-          <div>
-            <p>{contact.address.street},</p>
-            <p>{contact.address.zip} {contact.address.city}</p>
-          </div>
+          <Phone stroke-width={1} />
+          <a href=`tel:${contact.phone.link}`>{contact.phone.display}</a>
         </div>
-      </address>
+        <div class="flex items-center gap-4">
+          <Mail stroke-width={1} />
+          <a href=`mailto:${contact.email}`>
+            {contact.email}
+          </a>
+        </div>
+        <address class="not-italic">
+          <div class="flex items-center gap-4">
+            <MapPin stroke-width={1} />
+            <div>
+              <p>{contact.address.street},</p>
+              <p>{contact.address.zip} {contact.address.city}</p>
+            </div>
+          </div>
+        </address>
+      </div>
     </div>
-  </div>
 
-  <!-- Social -->
-  <div class="flex flex-col items-center justify-center gap-4">
-    <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
-    <div class="mt-2.5 flex flex-row gap-4">
-      <a href=`${contact.social.linkedin}` class="group relative h-8 w-8">
-        <LinkedinIcon
-          class="absolute inset-0 transition-opacity group-hover:opacity-0"
-        />
-        <LinkedinIconHover
-          class="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
-        />
-      </a>
-      <a href=`${contact.social.github}` class="group relative h-8 w-8">
-        <GithubIcon
-          class="absolute inset-0 transition-opacity group-hover:opacity-0"
-        />
-        <GithubIconHover
-          class="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
-        />
-      </a>
+    <!-- Social mobile -->
+    <!-- TODO: Change md:invisible and remove md:absolute (we lost svg color if we use hidden -->
+    <div
+      class="flex flex-col items-center justify-center gap-4 md:invisible md:absolute"
+    >
+      <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
+      <div class="mt-2.5 flex flex-row gap-4">
+        <SocialLinks />
+      </div>
     </div>
-  </div>
 
-  <!-- Navigation -->
-  <div class="flex flex-col items-center justify-center gap-4">
-    <span class="font-heading text-xl font-bold">Navigation</span>
-    <div class="flex flex-col items-center gap-1">
-      <a href="">Accueil</a>
-      <a href="projects">Projets</a>
-      <a href="about">À propos</a>
+    <!-- Navigation -->
+    <div class="flex flex-col items-center justify-center gap-4">
+      <span class="font-heading text-xl font-bold">Navigation</span>
+      <div class="flex flex-col items-center gap-1">
+        <a href="">Accueil</a>
+        <a href="projects">Projets</a>
+        <a href="about">À propos</a>
+      </div>
     </div>
-  </div>
 
-  <!-- Legal -->
-  <div class="flex flex-col items-center justify-center gap-4">
-    <span class="font-heading text-xl font-bold">Légal</span>
-    <div class="flex flex-col items-center gap-1">
-      <a href="legal-notices">Mentions légales</a>
-      <a href="privacy-policy">Politique de confidentialité</a>
+    <div class="flex flex-col gap-6">
+      <!-- Legal -->
+      <div class="flex flex-col items-center justify-center gap-4">
+        <span class="font-heading text-xl font-bold">Légal</span>
+        <div class="flex flex-col items-center gap-1">
+          <a href="legal-notices">Mentions légales</a>
+          <a href="privacy-policy">Politique de confidentialité</a>
+        </div>
+      </div>
+
+      <!-- Social desktop -->
+      <div class="hidden flex-col items-center justify-center gap-4 md:flex">
+        <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
+        <div class="mt-2.5 flex flex-row gap-4">
+          <SocialLinks />
+        </div>
+      </div>
     </div>
   </div>
 
