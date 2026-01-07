@@ -1,9 +1,5 @@
 ---
 import { Mail, MapPin, Phone } from "@lucide/astro";
-import GithubIcon from "@/assets/icons/socialNetworks/github.svg";
-import GithubIconHover from "@/assets/icons/socialNetworks/githubHover.svg";
-import LinkedinIcon from "@/assets/icons/socialNetworks/linkedin.svg";
-import LinkedinIconHover from "@/assets/icons/socialNetworks/linkedinHover.svg";
 import { contact } from "@/config/contact";
 import SocialLinks from "@/components/SocialLinks/index.astro";
 ---
@@ -11,11 +7,11 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
 <footer
   class="bg-solid bg-noise flex flex-col items-center justify-center gap-6 py-6 text-sm"
 >
-  <div class="flex flex-col gap-6 md:flex-row">
+  <div class="flex flex-col gap-6 md:flex-row md:items-baseline md:gap-24">
     <!-- Contact -->
-    <div class="flex flex-col items-center gap-4">
+    <div class="flex flex-col items-center gap-2.5 md:items-start">
       <span class="font-heading text-xl font-bold">Contact</span>
-      <div class="flex flex-col items-center gap-2">
+      <div class="flex flex-col items-center gap-2 md:items-start">
         <div class="flex items-center gap-4">
           <Phone stroke-width={1} />
           <a href=`tel:${contact.phone.link}`>{contact.phone.display}</a>
@@ -31,7 +27,7 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
             <MapPin stroke-width={1} />
             <div>
               <p>{contact.address.street},</p>
-              <p>{contact.address.zip} {contact.address.city}</p>
+              <p>{contact.address.zip}, {contact.address.city}</p>
             </div>
           </div>
         </address>
@@ -41,7 +37,7 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
     <!-- Social mobile -->
     <!-- TODO: Change md:invisible and remove md:absolute (we lost svg color if we use hidden -->
     <div
-      class="flex flex-col items-center justify-center gap-4 md:invisible md:absolute"
+      class="flex flex-col items-center justify-center gap-2.5 md:invisible md:absolute"
     >
       <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
       <div class="mt-2.5 flex flex-row gap-4">
@@ -50,7 +46,7 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
     </div>
 
     <!-- Navigation -->
-    <div class="flex flex-col items-center justify-center gap-4">
+    <div class="flex flex-col items-center justify-center gap-2.5">
       <span class="font-heading text-xl font-bold">Navigation</span>
       <div class="flex flex-col items-center gap-1">
         <a href="">Accueil</a>
@@ -59,18 +55,22 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
       </div>
     </div>
 
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-6 md:items-start">
       <!-- Legal -->
-      <div class="flex flex-col items-center justify-center gap-4">
+      <div
+        class="flex flex-col items-center justify-center gap-2.5 md:items-start"
+      >
         <span class="font-heading text-xl font-bold">Légal</span>
-        <div class="flex flex-col items-center gap-1">
+        <div class="flex flex-col items-center gap-1 md:items-start">
           <a href="legal-notices">Mentions légales</a>
           <a href="privacy-policy">Politique de confidentialité</a>
         </div>
       </div>
 
       <!-- Social desktop -->
-      <div class="hidden flex-col items-center justify-center gap-4 md:flex">
+      <div
+        class="hidden flex-col items-center justify-center gap-2.5 md:flex md:items-start"
+      >
         <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
         <div class="mt-2.5 flex flex-row gap-4">
           <SocialLinks />
@@ -80,6 +80,6 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
   </div>
 
   <!-- Copyright -->
-  <hr class="border-gradient h-px w-3xs" />
+  <hr class="border-gradient h-px w-3xs md:w-2xl" />
   <span>© 2025 Nikola Legay - Design & code by me.</span>
 </footer>
