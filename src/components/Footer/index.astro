@@ -10,8 +10,10 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
   <div class="flex flex-col gap-6 md:flex-row md:items-baseline md:gap-24">
     <!-- Contact -->
     <div class="flex flex-col items-center gap-2.5 md:items-start">
-      <span class="font-heading text-xl font-bold">Contact</span>
-      <div class="flex flex-col items-center gap-2 md:items-start">
+      <span class="font-heading text-base font-bold md:text-lg">Contact</span>
+      <div
+        class="flex flex-col items-center gap-2 text-xs md:items-start md:text-sm"
+      >
         <div class="flex items-center gap-4">
           <Phone stroke-width={1} />
           <a href=`tel:${contact.phone.link}`>{contact.phone.display}</a>
@@ -39,7 +41,7 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
     <div
       class="flex flex-col items-center justify-center gap-2.5 md:invisible md:absolute"
     >
-      <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
+      <span class="font-heading text-base font-bold">Réseaux Sociaux</span>
       <div class="mt-2.5 flex flex-row gap-4">
         <SocialLinks />
       </div>
@@ -47,8 +49,9 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
 
     <!-- Navigation -->
     <div class="flex flex-col items-center justify-center gap-2.5">
-      <span class="font-heading text-xl font-bold">Navigation</span>
-      <div class="flex flex-col items-center gap-1">
+      <span class="font-heading text-base font-bold md:text-lg">Navigation</span
+      >
+      <div class="flex flex-col items-center gap-1 text-xs md:text-sm">
         <a href="">Accueil</a>
         <a href="projects">Projets</a>
         <a href="about">À propos</a>
@@ -58,9 +61,9 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
     <div class="flex flex-col gap-6 md:items-start">
       <!-- Legal -->
       <div
-        class="flex flex-col items-center justify-center gap-2.5 md:items-start"
+        class="flex flex-col items-center justify-center gap-2.5 text-xs md:items-start md:text-sm"
       >
-        <span class="font-heading text-xl font-bold">Légal</span>
+        <span class="font-heading text-base font-bold md:text-lg">Légal</span>
         <div class="flex flex-col items-center gap-1 md:items-start">
           <a href="legal-notices">Mentions légales</a>
           <a href="privacy-policy">Politique de confidentialité</a>
@@ -69,9 +72,9 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
 
       <!-- Social desktop -->
       <div
-        class="hidden flex-col items-center justify-center gap-2.5 md:flex md:items-start"
+        class="hidden flex-col items-center justify-center gap-2.5 text-sm md:flex md:items-start"
       >
-        <span class="font-heading text-xl font-bold">Réseaux Sociaux</span>
+        <span class="font-heading text-lg font-bold">Réseaux Sociaux</span>
         <div class="mt-2.5 flex flex-row gap-4">
           <SocialLinks />
         </div>
@@ -81,5 +84,7 @@ import SocialLinks from "@/components/SocialLinks/index.astro";
 
   <!-- Copyright -->
   <hr class="border-gradient h-px w-3xs md:w-2xl" />
-  <span>© 2025 Nikola Legay - Design & code by me.</span>
+  <span class="text-xs md:text-sm">
+    © 2025 Nikola Legay - Design & code by me.
+  </span>
 </footer>
