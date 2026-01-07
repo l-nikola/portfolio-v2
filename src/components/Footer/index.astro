@@ -1,0 +1,99 @@
+---
+import { Mail, MapPin, Phone } from "@lucide/astro";
+import { contact } from "@/config/contact";
+import SocialLinks from "@/components/SocialLinks/index.astro";
+---
+
+<footer
+  class="bg-solid bg-noise flex flex-col items-center justify-center gap-6 py-6 text-sm"
+>
+  <div class="flex flex-col gap-6 md:flex-row md:items-baseline md:gap-24">
+    <!-- Contact -->
+    <section class="flex flex-col items-center gap-2.5 md:items-start">
+      <h3 class="text-base font-bold md:text-lg">Contact</h3>
+      <address
+        class="flex flex-col items-center gap-2 text-xs not-italic md:items-start md:text-sm"
+      >
+        <div class="flex items-center gap-4">
+          <Phone stroke-width={1} />
+          <a href={`tel:${contact.phone.link}`}>{contact.phone.display}</a>
+        </div>
+        <div class="flex items-center gap-4">
+          <Mail stroke-width={1} />
+          <a href={`mailto:${contact.email}`}>
+            {contact.email}
+          </a>
+        </div>
+        <div class="flex items-center gap-4">
+          <MapPin stroke-width={1} />
+          <div>
+            <p>{contact.address.street},</p>
+            <p>{contact.address.zip}, {contact.address.city}</p>
+          </div>
+        </div>
+      </address>
+    </section>
+
+    <!-- Social mobile -->
+    <!-- TODO: Change md:invisible and remove md:absolute (we lost svg color if we use hidden -->
+    <section
+      class="flex flex-col items-center justify-center gap-2.5 md:invisible md:absolute"
+    >
+      <h3 class="text-base font-bold">Réseaux Sociaux</h3>
+      <div class="mt-2.5 flex flex-row gap-4">
+        <SocialLinks />
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="flex flex-col items-center justify-center gap-2.5">
+      <h3 class="text-base font-bold md:text-lg">Navigation</h3>
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-col items-center gap-1 text-xs md:text-sm">
+          <li>
+            <a href="/">Accueil</a>
+          </li>
+          <li>
+            <a href="/projects">Projets</a>
+          </li>
+          <li>
+            <a href="/about">À propos</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <div class="flex flex-col gap-6 md:items-start">
+      <!-- Legal -->
+      <section
+        class="flex flex-col items-center justify-center gap-2.5 text-xs md:items-start md:text-sm"
+      >
+        <h3 class="text-base font-bold md:text-lg">Légal</h3>
+        <nav aria-label="Footer legal">
+          <ul class="flex flex-col items-center gap-1 md:items-start">
+            <li>
+              <a href="/legal-notices">Mentions légales</a>
+            </li>
+            <li>
+              <a href="/privacy-policy">Politique de confidentialité</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- Social desktop -->
+      <section
+        class="hidden flex-col items-center justify-center gap-2.5 text-sm md:flex md:items-start"
+      >
+        <h3 class="text-lg font-bold">Réseaux Sociaux</h3>
+        <div class="mt-2.5 flex flex-row gap-4">
+          <SocialLinks />
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <hr class="border-gradient h-px w-3xs md:w-2xl" />
+  <p class="text-xs md:text-sm">© 2025 Nikola Legay - Design & code by me.</p>
+</footer>

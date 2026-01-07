@@ -1,0 +1,28 @@
+---
+import GithubIcon from "@/assets/icons/socialNetworks/github.svg";
+import GithubIconHover from "@/assets/icons/socialNetworks/githubHover.svg";
+import LinkedinIcon from "@/assets/icons/socialNetworks/linkedin.svg";
+import LinkedinIconHover from "@/assets/icons/socialNetworks/linkedinHover.svg";
+import { contact } from "@/config/contact";
+---
+
+<a href={`${contact.social.linkedin}`} class="group relative h-8 w-8">
+  <LinkedinIcon
+    class="absolute inset-0 transition-opacity group-hover:opacity-0"
+    aria-label="LinkedIn"
+  />
+  <LinkedinIconHover
+    class="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
+    aria-label="LinkedIn"
+  />
+</a>
+<a href={`${contact.social.github}`} class="group relative h-8 w-8">
+  <GithubIcon
+    class="absolute inset-0 transition-opacity group-hover:opacity-0"
+    aria-label="Github"
+  />
+  <GithubIconHover
+    class="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
+    aria-label="Github"
+  />
+</a>
