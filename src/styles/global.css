@@ -55,6 +55,17 @@
       var(--gradient) border-box;
   }
 
+  .border-gradient-solid {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--solid), var(--solid)) padding-box,
+      var(--gradient) border-box;
+  }
+
+  .border-gradient-solid:hover {
+    background: var(--gradient) border-box;
+  }
+
   /* Background */
   .bg-primary {
     background-color: var(--background);
